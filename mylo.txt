@@ -1,2 +1,26 @@
-hbndcjlhweyihcdb,jndhwed:wq
+pipeline {
+    agent any
 
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/yourusername/yourrepo.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'your build commands here'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'your test commands here'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'your deploy commands here'
+            }
+        }
+    }
+}
